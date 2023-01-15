@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../styles/waiting.module.css'
-
+import OrdersList from 'components/ordersList/ordersList';
 
 const waitingOrder = () => {
   return (
@@ -10,6 +10,7 @@ const waitingOrder = () => {
         <div className={styles.containerContent}>
           <h1 className={styles.title}>Procesando su orden... Espere</h1>
           <h3 className={styles.subtitle}>Lista de ordenes</h3>
+          <OrdersList></OrdersList>
           <div className={styles.containerButtons}>
             <button className={styles.button}>Menu</button>
             <button className={styles.button}>Ordenar</button>
