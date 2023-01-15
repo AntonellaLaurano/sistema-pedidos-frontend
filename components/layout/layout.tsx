@@ -36,7 +36,7 @@ interface LayoutProps {
   children: any;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   return (
@@ -265,5 +265,3 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     </>
   )
 }
-
-export default Layout;
