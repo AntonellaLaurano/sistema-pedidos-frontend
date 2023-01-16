@@ -31,7 +31,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const ordersList = () => {
+const OrdersList = () => {
 
   const checkbox = useRef()
   const [checked, setChecked] = useState(false)
@@ -167,4 +167,4 @@ const ordersList = () => {
   )
 }
 
-export default ordersList
+export default OrdersList;
