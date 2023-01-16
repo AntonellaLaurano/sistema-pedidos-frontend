@@ -29,6 +29,9 @@
     align-items: center;
     /* opacity: 0.8; */
   }
+  .fontFamily {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
   .title{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 80px;

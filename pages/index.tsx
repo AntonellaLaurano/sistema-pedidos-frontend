@@ -12,7 +12,7 @@ const Home = () => {
             <h1 className={styles.title}>Bienvenidos a Vigus Lunch!!!</h1>
             <h3 className={styles.subtitle}>La tienda con los mejores pasteles y empanadas de toda la ciudad, con el menu mas variado</h3>
             <div className={styles.containerButtons}>
-              <Link href="#">
+              <Link href="/menu">
                 <button className={styles.button}>Menu</button>
               </Link>
               <Link href="#">
