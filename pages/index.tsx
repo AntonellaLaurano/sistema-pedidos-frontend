@@ -1,10 +1,13 @@
 import { Layout } from 'components/layout';
 import Link from 'next/link';
 import styles from '../styles/index.module.css'
+import Navbar from '../components/navbar/navbar';
 
 const Home = () => {
   return (
     // <Layout>
+    <>
+      <Navbar />
       <div className={styles.container}>
         {/* <img className={styles.image} src="/landing.jpeg" alt="landing" /> */}
         <div className={styles.containerImage}>
@@ -22,6 +25,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+    </>
     // </Layout>
   )
 }
