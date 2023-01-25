@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     position: sticky;
+    background-color: transparent;
 }
 .subcontainer{
     width: 95%;
