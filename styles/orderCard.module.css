@@ -1,0 +1,84 @@
+.containerOrders{
+    width: 700px;
+    height: 470px;
+    overflow-y: auto;
+}
+.container{
+    width: 95%;
+    height: 150px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(108, 1, 21, 0.7);
+    padding: 10px;
+    margin: 5px 0;
+}
+.imageContainer{
+    width: 30%;
+    height: 100%;
+    background-image: url("../public/landing.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+}
+.descriptionContainer{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.quantityTotal{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 800px) {
+    .containerOrders{
+        width: 470px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .containerOrders{
+        width: 280px;
+    }
+  }
+
+/* ////////////Scroll */
+.containerOrders::-webkit-scrollbar {
+        width: 4px;
+        height: 1px;
+}
+
+.containerOrders::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.containerOrders::-webkit-scrollbar-thumb {
+    background: rgba(108, 1, 21, 0.7);
+    border-radius: 10px;
+}
+
+.containerOrders::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
+.containerOrders::-webkit-scrollbar-thumb:active {
+    background-color: white;
+}
+
+.containerOrders::-webkit-scrollbar-track {
+    background: white;
+    border-radius: 4px;
+}
+    
+.containerOrders::-webkit-scrollbar-track:hover,
+.containerOrders::-webkit-scrollbar-track:active {
+    background: white;
+}
