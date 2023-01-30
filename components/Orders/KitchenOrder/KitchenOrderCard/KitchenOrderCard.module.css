@@ -1,0 +1,8 @@
+.card-body {
+    width: 18.75rem;
+    height: 28.125rem;
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+    display: grid;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}

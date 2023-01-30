@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '../components/Orders/KitchenOrder/KitchenOrderCard/KitchenOrderCard.module.css';
+@import '../components/Orders/KitchenOrder/KitchenOrderHeader/KitchenOrderHeader.module.css';
+@import '../components/Orders/KitchenOrder/KitchenOrderBody/KitchenOrderBody.module.css';
+@import '../components/Orders/KitchenOrder/KitchenOrderItem/KitchenOrderItem.module.css';
+@import '../components/Orders/KitchenOrder/KitchenOrderTotal/KitchenOrderTotal.module.css';
+@import '../components/Orders/KitchenOrder/KitchenOrderButton/KitchenOrderButton.module.css';

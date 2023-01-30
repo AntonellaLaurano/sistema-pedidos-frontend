@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styles from '../styles/waiting.module.css'
 import OrdersList from 'components/ordersList/ordersList';
 import Navbar from '../components/navbar/navbar';

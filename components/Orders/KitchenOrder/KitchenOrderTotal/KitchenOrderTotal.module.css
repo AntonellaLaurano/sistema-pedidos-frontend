@@ -1,0 +1,22 @@
+.total-body {
+    padding-top: 1rem;
+}
+
+.total-description {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-text {
+    font-weight: 400;
+    font-size: 0.85rem;
+    line-height: 140%;
+    color: #ABBBC2;
+    transform: rotate(-0.03deg);
+}
+
+.total-price {
+    font-weight: 500;
+    font-size: 0.82rem;
+    line-height: 140%;
+}
