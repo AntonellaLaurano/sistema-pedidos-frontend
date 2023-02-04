@@ -47,7 +47,7 @@ const orders = [
     // More people...
   ]
 
-const orderCard = () => {
+const OrderCard = () => {
     const [total, setTotal] = useState<number>(0);
     useEffect(() => {
         let cont = 0;
@@ -80,4 +80,4 @@ const orderCard = () => {
   )
 }
 
-export default orderCard
+export default OrderCard;
