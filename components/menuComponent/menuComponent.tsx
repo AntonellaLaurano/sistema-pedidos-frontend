@@ -19,7 +19,7 @@ export const MenuComponent: React.FC = () => {
     <div className="w-full min-h-screen flex flex-col items-center p-10 sm:bg-gray-200">
       <div className="bg-white w-[90%] xl:w-[80%] p-0 sm:py-5 sm:px-16 sm:rounded-lg sm:shadow">
         <h1 className={clsx(styles.fontFamily, 'w-full text-6xl')}>Menu</h1>
-        <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mt-6">
+        <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 mt-6">
           {data?.map((item, index) => (
             <li
               key={index}
