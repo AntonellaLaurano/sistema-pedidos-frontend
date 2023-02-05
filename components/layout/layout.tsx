@@ -8,11 +8,14 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import styles from '../../styles/navbar.module.css'
+import { useRouter } from 'next/router';
 
 const navigation = [
-  { name: 'Home', href: '/', icon: HomeIcon, current: true },
-  { name: 'Menu', href: '/menu', icon: Squares2X2Icon, current: false },
+  { name: 'Home', href: '/' },
+  { name: 'Menu', href: '/menu' },
+  { name: 'Orders', href: '/waitingOrder' }
 ]
+
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
@@ -35,16 +38,9 @@ const user = {
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+	const router = useRouter();
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Disclosure as="nav" className="border-b border-gray-200 bg-white">
           {({ open }) => (
@@ -56,21 +52,24 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                       <div className={styles.imageContainer}/>
                     </div>
                     <div className="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
-                      {navigation.map((item) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'border-indigo-500 text-gray-900'
-                              : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                            'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      ))}
+                      {navigation.map((item) => {
+                        const active = router.asPath === item.href
+                        return (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            className={classNames(
+                              active
+                                ? 'border-[#6c0115b3] text-gray-900'
+                                : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
+                              'inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium'
+                            )}
+                            aria-current={active ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </a>
+                        )
+                      })}
                     </div>
                   </div>
                   <div className="hidden sm:ml-6 sm:flex sm:items-center">
@@ -127,22 +126,25 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
               <Disclosure.Panel className="sm:hidden">
                 <div className="space-y-1 pt-2 pb-3">
-                  {navigation.map((item) => (
-                    <Disclosure.Button
-                      key={item.name}
-                      as="a"
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? 'bg-indigo-50 border-indigo-500 text-indigo-700'
-                          : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
-                        'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
-                      )}
-                      aria-current={item.current ? 'page' : undefined}
-                    >
-                      {item.name}
-                    </Disclosure.Button>
-                  ))}
+                  {navigation.map((item) => {
+                    const active = router.asPath === item.href
+                    return (
+                      <Disclosure.Button
+                        key={item.name}
+                        as="a"
+                        href={item.href}
+                        className={classNames(
+                          active
+                            ? 'bg-indigo-50 bg-[#6c01151f] text-[#6c0115b3]'
+                            : 'border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800',
+                          'block pl-3 pr-4 py-2 border-l-4 text-base font-medium'
+                        )}
+                        aria-current={active ? 'page' : undefined}
+                      >
+                        {item.name}
+                      </Disclosure.Button>
+                    )
+                  })}
                 </div>
                 <div className="border-t border-gray-200 pt-4 pb-3">
                   <div className="flex items-center px-4">
