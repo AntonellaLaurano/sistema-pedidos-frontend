@@ -52,7 +52,7 @@ export const MenuComponent: React.FC = () => {
     setLoading(true);
     await postOrder({
       table: '1',
-      selectedItems
+      order_Produdct: selectedItems
     });
     setLoading(false);
     notify();
