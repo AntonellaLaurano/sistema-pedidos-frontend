@@ -5,10 +5,9 @@ import Navbar from '../components/navbar/navbar';
 
 const Home = () => {
   return (
-    // <Layout>
+    <Layout>
     <div className={styles.section}>
       <div className={styles.container}>
-        <Navbar />
         {/* <img className={styles.image} src="/landing.jpeg" alt="landing" /> */}
         <div className={styles.containerImage}>
           <div className={styles.containerContent}>
@@ -26,7 +25,7 @@ const Home = () => {
         </div>
       </div>
     </div>
-    // </Layout>
+    </Layout>
   )
 }
 
