@@ -34,7 +34,6 @@
     font-size: 0.8rem;
     line-height: 130%;
     color: black;
-    transform: rotate(0.3deg);
 }
 
 .dish-price {
@@ -42,16 +41,14 @@
     font-size: 0.8rem;
     line-height: 140%;
     color: #ABBBC2;
-    transform: rotate(0.3deg);
 }
 
 .item-quantity {
     width: 1.5rem;
     height: 1.75rem;
     border-radius: 0.25rem;
-    transform: rotate(0.3deg);
     font-weight: 500;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     line-height: 140%;
     text-align: center;
     padding-top: 0.5rem;
@@ -67,7 +64,6 @@
     font-weight: 500;
     font-size: 0.6rem;
     line-height: 140%;
-    transform: rotate(0.3deg);
     padding-left: 0.45rem;
     background: white;
     border: 1px #eeee solid;

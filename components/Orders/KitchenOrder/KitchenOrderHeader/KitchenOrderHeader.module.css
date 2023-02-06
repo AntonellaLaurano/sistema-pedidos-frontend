@@ -9,7 +9,6 @@
     font-weight: 600;
     font-size: 1.25rem;
     line-height: 140%;
-    transform: rotate(-0.03deg);
     text-transform: capitalize;
     color: black;
 }
@@ -25,7 +24,6 @@
     background: #EA7C69;
     color: #FFFFFF;
     border-radius: 0.25rem;
-    transform: rotate(-0.03deg);
     font-weight: 600;
     font-size: 0.62rem;
     line-height: 140%;

@@ -26,7 +26,7 @@ export const MenuComponent: React.FC = () => {
 
   const { data } = useQuery<Product[] | null>(
 		['ALL_PRODUCTS'],
-		() => getAllProducts(),
+    () => getAllProducts(),
     {
       refetchOnWindowFocus: false,
     }

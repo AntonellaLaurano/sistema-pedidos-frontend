@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '../../styles/navbar.module.css'
 
-const navbar = () => {
+const Navbar = () => {
   return (
     <div className={styles.container}>
       <div className={styles.subcontainer}>
@@ -27,4 +27,4 @@ const navbar = () => {
   )
 }
 
-export default navbar
+export default Navbar

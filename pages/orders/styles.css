@@ -1,0 +1,45 @@
+.orders-wrapper {   
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.tickets-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  height: 37.5rem;
+  margin: auto 0;
+  overflow: auto;
+}
+
+.page-title {
+  font-size: 3.5rem;
+  font-weight: 500;
+}
+
+.title-container {
+  grid-column: 1 / 5;
+  padding: 0.5rem 1rem 1.5rem 0;
+  border-bottom: 0.5px solid #e5e7eb;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

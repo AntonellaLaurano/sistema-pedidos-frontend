@@ -8,3 +8,9 @@
 @import '../components/Orders/KitchenOrder/KitchenOrderItem/KitchenOrderItem.module.css';
 @import '../components/Orders/KitchenOrder/KitchenOrderTotal/KitchenOrderTotal.module.css';
 @import '../components/Orders/KitchenOrder/KitchenOrderButton/KitchenOrderButton.module.css';
+
+@import "../components/Orders/SidebarOrder/SidebarBody/SidebarBody.module.css";
+@import "../components/Orders/SidebarOrder/SidebarItem/SidebarItem.module.css";
+
+
+@import '../pages/orders/styles.css';

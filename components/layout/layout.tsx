@@ -37,7 +37,15 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      <div className="min-h-full">
+      {/*
+        This example requires updating your template:
+
+        ```
+        <html class="h-full">
+        <body class="h-full">
+        ```
+      */}
+      <div className="h-screen">
         <Disclosure as="nav" className="border-b border-gray-200 bg-white">
           {({ open }) => (
             <>
@@ -194,7 +202,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
           )}
         </Disclosure>
 
-        <div className="">
+        <div>
          {children}
         </div>
       </div>
