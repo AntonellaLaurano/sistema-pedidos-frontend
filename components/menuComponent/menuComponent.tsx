@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getAllProducts, postOrder } from 'api';
+import { getAllProducts, postOrder } from 'apii'
 import clsx from 'clsx';
 import { Product } from 'interfaces';
 import { useQuery } from 'react-query';
@@ -57,7 +57,10 @@ export const MenuComponent: React.FC = () => {
     })) {
 			formData.append(key, value);
 		}
-    await postOrder(formData);
+    await postOrder(formData).then( response => {
+      sessionStorage.setItem('order', JSON.stringify(response))
+      console.log(response)
+    });
     setLoading(false);
     notify();
   }

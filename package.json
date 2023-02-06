@@ -14,6 +14,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
+    "@netlify/plugin-nextjs": "^4.30.3",
     "@next/font": "13.1.1",
     "@tailwindcss/forms": "^0.5.3",
     "@types/node": "^18.11.18",
