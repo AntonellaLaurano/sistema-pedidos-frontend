@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { SessionProvider } from "next-auth/react";
 import {
   QueryClient,
   QueryClientProvider,
@@ -18,9 +19,11 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
       </Head>
-      <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
-      </QueryClientProvider>
+      <SessionProvider>
+        <QueryClientProvider client={queryClient}>
+          <Component {...pageProps} />
+        </QueryClientProvider>
+      </SessionProvider>
     </>
   );
 }
