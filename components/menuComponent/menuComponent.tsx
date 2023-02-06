@@ -51,7 +51,6 @@ export const MenuComponent: React.FC = () => {
 
   const saveOrder = async() => {
     setLoading(true);
-    console.log('hear');
 		const formData = new FormData();
     for (const [key, value] of Object.entries({
       table: '1',
@@ -64,7 +63,6 @@ export const MenuComponent: React.FC = () => {
     });
     setLoading(false);
     notify();
-    console.log('hear2');
     router.push('/waitingOrder');
   }
 

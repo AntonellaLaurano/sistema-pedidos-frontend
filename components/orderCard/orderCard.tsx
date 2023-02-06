@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/orderCard.module.css'
-import { getAllProducts, getOneOrder } from 'api';
+import { getAllProducts, getOneOrder } from 'apii';
 import { Product } from 'interfaces';
 
 const orders = [
@@ -51,7 +51,16 @@ const orders = [
 
 const OrderCard = () => {
     const [total, setTotal] = useState<number>(0);
+    const orderActual = async( data: any) => {
+      const formData = new FormData();
+      formData.append('id', data);
+      await getOneOrder(formData).then( response => {
+        console.log(response)
+      });
+    }
     useEffect(() => {
+      //console.log(JSON.parse(sessionStorage.getItem('order')));
+      orderActual(JSON.parse(sessionStorage.getItem('order')));
         let cont = 0;
         orders.map(({ price, quantity}) => {
             cont = (price*quantity) + cont;
