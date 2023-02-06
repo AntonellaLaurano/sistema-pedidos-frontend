@@ -6,6 +6,7 @@ import { useQuery } from 'react-query';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from '../../styles/index.module.css';
+import router from 'next/router';
 
 const image = 'https://images.unsplash.com/photo-1634069564622-99a828554a02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=863&q=80';
 
@@ -50,6 +51,7 @@ export const MenuComponent: React.FC = () => {
 
   const saveOrder = async() => {
     setLoading(true);
+    console.log('hear');
 		const formData = new FormData();
     for (const [key, value] of Object.entries({
       table: '1',
@@ -58,11 +60,12 @@ export const MenuComponent: React.FC = () => {
 			formData.append(key, value);
 		}
     await postOrder(formData).then( response => {
-      sessionStorage.setItem('order', JSON.stringify(response))
-      console.log(response)
+      sessionStorage.setItem('order', JSON.stringify(response));
     });
     setLoading(false);
     notify();
+    console.log('hear2');
+    router.push('/waitingOrder');
   }
 
   return (
