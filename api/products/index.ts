@@ -1,4 +1,4 @@
-import { Product } from "interfaces";
+import { Category, Product } from "interfaces";
 
 export const getAllProducts = async () => {
   let response = await fetch(`${process.env.NEXT_PUBLIC_API}/v1/products`, {
@@ -9,12 +9,27 @@ export const getAllProducts = async () => {
   return null
 };
 
-export const  postOrder = async (data: any) => {
-  return await fetch(`${process.env.NEXT_PUBLIC_API}/v1/orders`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
+
+export const getAllCategories = async () => {
+  let response = await fetch(`${process.env.NEXT_PUBLIC_API}/v1/categories`, {
+    method: "GET",
   });
-}
+  const data = await response.json();
+  if (data) return data as any;
+  return null
+};
+
+export const  addProduct = async (data: any) => {
+  return await fetch(`${process.env.NEXT_PUBLIC_API}/v1/products`, {
+    method: "POST",
+    body: data,
+  });
+};
+
+export const  addCategory = async (data: any) => {
+  return await fetch(`${process.env.NEXT_PUBLIC_API}/v1/categories`, {
+    method: "POST",
+    body: data,
+  });
+};
+
