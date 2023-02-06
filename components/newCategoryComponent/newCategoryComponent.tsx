@@ -1,4 +1,4 @@
-import { addCategory } from 'api';
+import { addCategory } from 'apii';
 import { useRouter } from 'next/router';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';

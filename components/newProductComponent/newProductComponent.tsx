@@ -1,4 +1,4 @@
-import { addProduct, getAllCategories } from 'api';
+import { addProduct, getAllCategories } from 'apii';
 import { Category } from 'interfaces';
 import { useRouter } from 'next/router';
 import * as React from 'react';
