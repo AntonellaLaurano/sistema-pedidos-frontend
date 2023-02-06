@@ -9,17 +9,12 @@ import {
 } from '@heroicons/react/24/outline';
 import styles from '../../styles/navbar.module.css'
 import { useRouter } from 'next/router';
+import { signOut, useSession } from 'next-auth/react';
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Menu', href: '/menu' },
   { name: 'Orders', href: '/waitingOrder' }
-]
-
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
 ]
 
 const classNames = (...classes) => {
@@ -30,15 +25,16 @@ interface LayoutProps {
   children: any;
 }
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
-
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  const  { data: session }  = useSession();
 	const router = useRouter();
+
+  const userNavigation = [
+    { name: 'Add Category', onclick: () => router.push('/newCategory') },
+    { name: 'Add Product', onclick: () => router.push('/newProduct') },
+    { name: 'Sign out', onclick: () => signOut() }
+  ]
+
   return (
     <>
       <div className="min-h-full">
@@ -75,12 +71,26 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                   <div className="hidden sm:ml-6 sm:flex sm:items-center">
                     {/* Profile dropdown */}
                     <Menu as="div" className="relative ml-3">
-                      <div>
-                        <Menu.Button className="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                          <span className="sr-only">Open user menu</span>
-                          <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
-                        </Menu.Button>
-                      </div>
+                      {session ? (
+                        <div>
+                          <Menu.Button className="flex max-w-xs items-center rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            <span className="sr-only">Open user menu</span>
+                            <span className="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
+                              <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                              </svg>
+                            </span>
+                          </Menu.Button>
+                        </div>
+                       ) : (
+                        <button
+                          type="button"
+                          className="inline-flex items-center rounded-md border border-transparent bg-[#6c0115b3] px-5 py-2 text-sm font-medium text-white shadow-sm"
+                          onClick={() => router.push('/log-in')}
+                        >
+                          Login
+                        </button>
+                      )}
                       <Transition
                         as={Fragment}
                         enter="transition ease-out duration-200"
@@ -95,7 +105,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                             <Menu.Item key={item.name}>
                               {({ active }) => (
                                 <a
-                                  href={item.href}
+                                  onClick={item.onclick}
                                   className={classNames(
                                     active ? 'bg-gray-100' : '',
                                     'block px-4 py-2 text-sm text-gray-700'
@@ -146,29 +156,39 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                     )
                   })}
                 </div>
-                <div className="border-t border-gray-200 pt-4 pb-3">
-                  <div className="flex items-center px-4">
-                    <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                {session ? (
+                  <div className="border-t border-gray-200 pt-4 pb-3">
+                    <div className="flex items-center px-4">
+                      <div className="flex-shrink-0">
+                      <span className="inline-block h-8 w-8 overflow-hidden rounded-full bg-gray-100">
+                        <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                      </span>
+                      </div>
                     </div>
-                    <div className="ml-3">
-                      <div className="text-base font-medium text-gray-800">{user.name}</div>
-                      <div className="text-sm font-medium text-gray-500">{user.email}</div>
+                    <div className="mt-3 space-y-1">
+                      {userNavigation.map((item) => (
+                        <Disclosure.Button
+                          key={item.name}
+                          as="a"
+                          onClick={item.onclick}
+                          className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
+                        >
+                          {item.name}
+                        </Disclosure.Button>
+                      ))}
                     </div>
                   </div>
-                  <div className="mt-3 space-y-1">
-                    {userNavigation.map((item) => (
-                      <Disclosure.Button
-                        key={item.name}
-                        as="a"
-                        href={item.href}
-                        className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                      >
-                        {item.name}
-                      </Disclosure.Button>
-                    ))}
-                  </div>
-                </div>
+                ) : (
+                  <button
+                    type="button"
+                    className="inline-flex items-center rounded-md border border-transparent bg-[#6c0115b3] px-8 py-2 text-base font-medium text-white shadow-sm"
+                    onClick={() => router.push('/log-in')}
+                  >
+                    Login
+                  </button>
+                )}
               </Disclosure.Panel>
             </>
           )}
