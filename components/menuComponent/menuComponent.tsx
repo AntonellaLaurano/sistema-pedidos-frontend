@@ -51,11 +51,13 @@ export const MenuComponent: React.FC = () => {
 
   const saveOrder = async() => {
     setLoading(true);
+    //console.log(data)
 		const formData = new FormData();
     for (const [key, value] of Object.entries({
       table: '1',
       order_Produdct: JSON.stringify(selectedItems),
     })) {
+      console.log(key, value)
 			formData.append(key, value);
 		}
     await postOrder(formData).then( response => {
