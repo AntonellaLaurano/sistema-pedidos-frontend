@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from '../../styles/orderCard.module.css'
-import { getAllProducts, getOneOrder } from 'api';
+import { getAllProducts, getOneOrder } from 'apii';
 import { Product } from 'interfaces';
 
 const orders = [
