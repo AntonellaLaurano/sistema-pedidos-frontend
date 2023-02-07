@@ -22,7 +22,7 @@ export const MenuComponent: React.FC = () => {
                                       theme: "light",
                                     });
 
-  const [selectedItems, setSelectedItems] = React.useState<number[]>([]);
+  const [selectedItems, setSelectedItems] = React.useState<string[]>([]);
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const { data } = useQuery<Product[] | null>(
@@ -32,19 +32,19 @@ export const MenuComponent: React.FC = () => {
       refetchOnWindowFocus: false,
     }
 	);
-  const addItem = (id: number): void => {
+  const addItem = (id: string): void => {
     const items = selectedItems;
     items.push(id);
     setSelectedItems([...items]);
   };
   
-  const removeItem = (id: number): void => {
+  const removeItem = (id: string): void => {
     const index = selectedItems.findIndex((item) => item == id);
     const items = selectedItems.filter((item, i) => i != index);
     setSelectedItems([...items]);
   };
 
-  const countItems = (id: number): number => {
+  const countItems = (id: string): number => {
     const items = selectedItems.filter((item) => item == id);
     return items.length;
   }
@@ -79,10 +79,10 @@ export const MenuComponent: React.FC = () => {
               className="col-span-1 flex flex-col divide-y divide-gray-200 rounded-lg bg-white text-center shadow"
             >
               <div className="flex flex-1 flex-col p-8 relative">
-                {countItems(item.category_id) > 0 && (
+                {countItems(item.id) > 0 && (
                   <div className="absolute top-4 right-5 rounded-full w-6 h-6 bg-[#6c0115b3] flex justify-center items-center">
                     <p className="text-white text-xs">
-                      {countItems(item.category_id)}
+                      {countItems(item.id)}
                     </p>
                   </div>
                 )}
@@ -98,7 +98,7 @@ export const MenuComponent: React.FC = () => {
                   <div className="flex w-0 flex-1">
                     <button
                       className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center rounded-bl-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500"
-                      onClick={() => removeItem(item.category_id)}
+                      onClick={() => removeItem(item.id)}
                     >
                       -
                     </button>
@@ -106,7 +106,7 @@ export const MenuComponent: React.FC = () => {
                   <div className="-ml-px flex w-0 flex-1">
                     <button
                       className="relative inline-flex w-0 flex-1 items-center justify-center rounded-br-lg border border-transparent py-4 text-sm font-medium text-gray-700 hover:text-gray-500"
-                      onClick={() => addItem(item.category_id)}
+                      onClick={() => addItem(item.id)}
                     >
                       +
                     </button>
