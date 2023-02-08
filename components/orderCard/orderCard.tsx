@@ -51,17 +51,28 @@ const orders = [
 
 const OrderCard = () => {
     const [total, setTotal] = useState<number>(0);
+    const [data, setData] = useState<any>();
+
     const orderActual = async( data: any) => {
       const formData = new FormData();
       formData.append('id', data);
       await getOneOrder(formData).then( response => {
         console.log(response)
+        response.order_Produdct.map( res => {
+          setData({
+            name: res.name,
+            description: res.description,
+            price: res.price,
+          })
+        })
       });
     }
     useEffect(() => {
       //console.log(JSON.parse(sessionStorage.getItem('order')));
-      orderActual(JSON.parse(sessionStorage.getItem('order')));
+      //orderActual(JSON.parse(sessionStorage.getItem('order')));
+      //console.log(JSON.parse(sessionStorage.getItem('order')), 'ajoi')
         let cont = 0;
+        //console.log(data, 'hola')
         orders.map(({ price, quantity}) => {
             cont = (price*quantity) + cont;
         });

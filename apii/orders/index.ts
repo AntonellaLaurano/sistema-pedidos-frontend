@@ -11,13 +11,14 @@ export const  postOrder = async (data: any) => {
 };
 
 export const  getOneOrder = async (data: any) => {
+  console.log('one order')
   let response =  await fetch(`${process.env.NEXT_PUBLIC_API}/v1/orders/get`, {
     method: "POST",
     // headers: {'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': 'true'},
     body: data,
   });
   const dataNew = await response.json();
-  //console.log(dataNew)
+  console.log(dataNew)
   if (dataNew) return dataNew as any;
   return null
 }

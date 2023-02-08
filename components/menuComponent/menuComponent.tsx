@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { getAllProducts, postOrder } from 'apii'
+import { getAllProducts, getOneOrder, postOrder } from 'apii'
 import clsx from 'clsx';
 import { Product } from 'interfaces';
 import { useQuery } from 'react-query';
@@ -50,8 +50,9 @@ export const MenuComponent: React.FC = () => {
   }
 
   const saveOrder = async() => {
+    let idd;
     setLoading(true);
-    //console.log(data)
+    //console.log(data)const formData = new FormData();
 		const formData = new FormData();
     for (const [key, value] of Object.entries({
       table: '1',
@@ -60,8 +61,17 @@ export const MenuComponent: React.FC = () => {
       console.log(key, value)
 			formData.append(key, value);
 		}
+    console.log(formData)
     await postOrder(formData).then( response => {
-      sessionStorage.setItem('order', JSON.stringify(response));
+      //sessionStorage.setItem('order', JSON.stringify(response));
+      idd = response;
+    });
+    const formDataID = new FormData();
+    formDataID.append('id', idd);
+    console.log(idd)
+    await getOneOrder(formData).then( resp => {
+      console.log(resp)
+      sessionStorage.setItem('order', JSON.stringify(resp));
     });
     setLoading(false);
     notify();
