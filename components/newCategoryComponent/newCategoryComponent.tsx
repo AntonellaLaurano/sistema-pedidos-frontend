@@ -32,7 +32,7 @@ export const NewCategoryComponent: React.FC = () => {
       <div className="bg-white w-full max-w-[616px] p-0 sm:py-5 sm:px-16 sm:rounded-lg sm:shadow">
         <form className="space-y-6 pt-8 sm:space-y-5 sm:pt-10" onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <h3 className="text-lg font-medium leading-6 text-gray-900">Product</h3>
+            <h3 className="text-lg font-medium leading-6 text-gray-900">Category</h3>
           </div>
           <div className="space-y-6 sm:space-y-5">
             <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5">
