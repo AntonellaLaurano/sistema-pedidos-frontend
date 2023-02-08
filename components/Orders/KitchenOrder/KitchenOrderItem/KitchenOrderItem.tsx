@@ -1,4 +1,5 @@
-export const KitchenOrderItem = () => {
+export const KitchenOrderItem = ({ name, price, description }) => {
+  
   return (
     <div className='item-body'>
       <div className='items-body'>
@@ -7,8 +8,8 @@ export const KitchenOrderItem = () => {
                 src='https://betony-nyc.com/wp-content/uploads/2021/03/17-foods-that-start-with-a-anchovies.jpg'
                 alt='Order dish' />
           <div className='kitchen-order-items-description-container'>
-              <span className='dish-title'>Spicy food</span>
-              <span className='dish-price'>$2.99</span>
+            <span className='dish-title'>{ name }</span>
+            <span className='dish-price'>{ price }</span>
           </div>
         </div>
         <div className="item-quantity">
@@ -16,7 +17,7 @@ export const KitchenOrderItem = () => {
         </div>
         <span className="item-price" style={{ justifySelf: "end" }}>$4.58</span>
       </div>
-      <input className='item-description' disabled defaultValue="Please, just a little bit spicy only"/> 
+      <input className='item-description' disabled defaultValue={description}/> 
     </div>
   )
 }

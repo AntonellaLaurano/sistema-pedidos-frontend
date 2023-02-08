@@ -1,9 +1,7 @@
-export const KitchenOrderButton = () => {
+export const KitchenOrderButton = ({status}) => {
   return (
     <div className='button-container'>
-      <button className="check-button">
-        Mark as completed
-      </button>
+      { status ? <button className="check-button" > Completed </button> : <button className="check-button"> Mark as completed </button>} 
     </div>
   )
 }

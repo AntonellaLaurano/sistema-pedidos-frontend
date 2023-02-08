@@ -1,7 +1,7 @@
-export const KitchenOrderHeader = () => {
+export const KitchenOrderHeader = ({ id }) => {
   return (
    <div className='header'>
-    <p className="title">order #1</p>
+      <p className="title">order{ id }</p>
     <div className="type-body">
       <button className='type-button'>dine in</button>
       <button className='type-button'>to go</button>

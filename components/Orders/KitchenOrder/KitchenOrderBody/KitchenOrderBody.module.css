@@ -4,4 +4,5 @@
     padding-top: 1rem;
     border-top: 1px solid #bababaed;
     border-bottom: 1px solid #bababaed;
+    overflow-y: auto;
 }
