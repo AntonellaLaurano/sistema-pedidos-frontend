@@ -52,27 +52,26 @@ export const MenuComponent: React.FC = () => {
   const saveOrder = async() => {
     let idd;
     setLoading(true);
-    //console.log(data)const formData = new FormData();
 		const formData = new FormData();
     for (const [key, value] of Object.entries({
       table: '1',
       order_Produdct: JSON.stringify(selectedItems),
     })) {
-      console.log(key, value)
 			formData.append(key, value);
 		}
-    console.log(formData)
     await postOrder(formData).then( response => {
-      //sessionStorage.setItem('order', JSON.stringify(response));
-      idd = response;
+      //const formDataID = new FormData();
+      //formDataID.append('id', response);
+      sessionStorage.setItem('order', JSON.stringify(response));
+      //idd = response;
     });
-    const formDataID = new FormData();
-    formDataID.append('id', idd);
-    console.log(idd)
-    await getOneOrder(formData).then( resp => {
-      console.log(resp)
-      sessionStorage.setItem('order', JSON.stringify(resp));
-    });
+    // const formDataID = new FormData();
+    // formDataID.append('id', idd);
+    // console.log(idd)
+    // await getOneOrder(formData).then( resp => {
+    //   console.log(resp)
+    //   sessionStorage.setItem('order', JSON.stringify(resp));
+    // });
     setLoading(false);
     notify();
     router.push('/waitingOrder');
